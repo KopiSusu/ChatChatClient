@@ -1,6 +1,6 @@
 # GONG
 
-Gong is a commerce platform for mobile messaging apps.
+A Messenger Sales application that allows small to mid size businesses to easily manage their conversations, products, marketing, and sales all in one place.
 
 To get the client running<br>
 1. npm install from client directory<br>
