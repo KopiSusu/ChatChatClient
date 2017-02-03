@@ -20,6 +20,7 @@ class Chat extends React.Component {
         this._startPolling = this._startPolling.bind(this)
     }
 
+    // Replace with live socket connection, current polling hack for demo.
     _startPolling(stop) {
         if(stop) {
             if(self)
@@ -53,6 +54,8 @@ class Chat extends React.Component {
         this._startPolling(true)
     }
 
+    // Group Messages based on Date, Sender, and tag based on that heigharchy
+    // Should move to actions
     _groupMessages() {
         let groupedMessages = {}
         let previousDateIndex = 0
