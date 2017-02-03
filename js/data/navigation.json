@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"name": "Chats",
+		"icon": "Chats",
+ 		"query": {}
+	},
+	{
+		"id": 2,
+		"name": "Posts",
+		"icon": "Posts",
+ 		"query": {}
+	},
+	{
+		"id": 3,
+		"name": "Orders",
+		"icon": "Orders",
+		"query": {}
+	},
+	{
+		"id": 4,
+		"name": "Products",
+		"icon": "Products",
+		"query": {}
+	}
+]

@@ -1,0 +1,145 @@
+@import './../../../global.styl'
+
+.inbox
+	background bgColor
+	height "calc(100% - %s)" % 60px
+	padding 0 10px
+	overflow auto
+	.actionbar
+		padding buffer
+		border 1px solid strokeColor
+		background white
+		border-top 0
+		h1
+			display inline-block
+			font-weight bold
+			color alpha(strokeColorDark, 0.7)
+			height (ribbonHeight/2)
+			font-size 13px
+			line-height (ribbonHeight/2)
+			padding 0
+		.search
+			.icon
+				padding 0 buffer
+		.icon
+			border-right 1px solid strokeColor
+			height (ribbonHeight/2)
+			padding (buffer/2) buffer
+			svg
+				fill strokeColorDark
+		p
+			display inline-block
+			color strokeColorDark
+			height (ribbonHeight/2)
+			line-height (ribbonHeight/2)
+			border-right 1px solid strokeColor
+			padding 0 buffer
+	.item
+		height (ribbonHeight * 0.75)
+		padding-left (buffer / 2)
+		overflow hidden
+		cursor pointer
+		list-style none
+		background bgColorLight
+		border 2px solid transparent
+		border-bottom 1px solid strokeColor
+		border-top 0
+		.row
+			height ((ribbonHeight * 0.75) - 2px)
+			.icon
+				height ((ribbonHeight * 0.75) - 2px)
+				padding 0 (buffer / 2)
+				svg
+					fill darken(fontColor, 50)
+				&.o
+					svg
+						fill alpha(thirdColor, 0.5)
+				&.p
+					svg
+						fill alpha(fourthColor, 0.5)
+				&.d
+					svg
+						fill darken(fontColor, 40)
+				&.ur
+					svg
+						fill alpha(importantColor, 0.6)
+			p
+				display inline-block
+				color darken(fontColorDark, 15)
+				height ((ribbonHeight * 0.75) - 2px)
+				line-height ((ribbonHeight * 0.75) - 2px)
+				padding 0 (buffer / 2)
+				&.response
+					height ((ribbonHeight * 0.75) - 13px)
+					line-height ((ribbonHeight * 0.75) - 13px)
+					margin-right buffer
+					font-size 13px
+					border 1px solid
+					color darken(fontColor, 20)
+				&.ur
+					color alpha(importantColor, 0.6)
+				&.right
+					float right
+				&.snippit
+					color lighten(fontColorDark, 15)
+			.status
+				font-size 0
+				border-left 1px solid darken(fontColor, 20)
+				padding 0 (buffer/2)
+				.icon
+					height 100%
+					padding 0
+				p
+					height 100%
+					line-height 100%
+			.select
+				display inline-block
+				min-width 100px
+				height ((ribbonHeight * 0.75) - 2px)
+				padding 0 (buffer / 2)
+				text-align center
+				select
+					height 100%
+					margin 0 auto
+					font-size 11px
+					width 100%
+					outline 0
+					cursor pointer
+					color  darken(fontColorDark, 15)
+					border 0
+					border-width 0 1px
+					background transparent
+					&:focus
+						outline 0
+		&:hover
+			border-left 2px dotted fontColorDark
+		&.selected
+			background bgColor
+			height ((ribbonHeight * 1.5) - 2px)
+		&.unread
+			background bgColor
+			svg
+				fill #111 !important
+			p
+				font-weight bold
+				color #111 !important
+			select
+				font-weight bold
+				color #111 !important
+	.toolbar
+		padding (buffer/3) (buffer/2) (buffer/1.8)
+		.buttonGroup
+			height 100%
+			button
+				height 100%
+				font-size 12px
+				border 0
+				color fontColor
+				padding 0 buffer
+				border-radius 3px
+				background primaryColor
+				&:disabled
+					opacity 0.6
+					text-decoration line-through
+			&.right
+				float right

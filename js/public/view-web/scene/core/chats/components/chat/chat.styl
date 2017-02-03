@@ -1,0 +1,622 @@
+@import './../../../global.styl'
+
+.chat
+	height 100%
+	.side
+		padding 0 10px
+	.details
+		height "calc(100% - %s)" % (ribbonHeight * 1.2)
+		overflow-y scroll
+		overflow-x hidden
+		.order
+			padding buffer (buffer/2) 0 (buffer/2)
+			background white
+			.empty
+				border 2px dashed strokeColor
+				cursor pointer
+				.iconTitle
+					text-align center
+					.icon
+						width 100px
+						height 100px
+						padding-bottom 0
+						svg
+							width 100%
+					h1
+						font-weight bold
+					p
+						margin-bottom (buffer*2)
+				&:hover
+					background alpha(bgColorLight,0.8)
+			.items
+				padding 0 0 (buffer/2)
+				.item
+					position relative
+					padding buffer
+					border 1px solid strokeColor
+					border-radius radius
+					margin-bottom (buffer/2)
+					.image
+						height ribbonHeight
+						background-size contain
+						background-repeat no-repeat
+						background-position center
+					.cancel
+						position absolute
+						cursor pointer
+						top 5px
+						left 5px
+						height 25px
+						width 25px	
+						.icon
+							padding 0
+							height 100%
+							width 100%
+					.text
+						h1
+							font-weight 500
+						p
+							color alpha(fontColorDark, 0.7)
+					.inputs
+						position relative
+						padding (buffer/2) 0
+						p
+							width auto
+							padding 0 buffer
+							background white
+							font-size 10px
+							position absolute
+							right 6px
+							top 0px
+						input
+							height (ribbonHeight/2)
+			.toolbar
+				text-align right
+				h1
+					border 1px solid alpha(fontColorDark, 0.5)
+					background bgColorLight
+					padding (buffer/3) buffer
+					margin (buffer/2) 0 buffer
+					font-size 13px
+					font-weight 500
+				.total
+					border-top 1px solid fontColorDark
+					h2
+						font-size 13px
+						margin 0
+						padding (buffer/2) 0
+					p
+						font-size 12px
+						font-weight 500
+						padding (buffer/2) 0
+				.send
+					h1
+						font-weight 400
+						margin 0 0 buffer
+						border 1px solid darken(strokeColor, 5)
+						background bgColorLight
+						cursor pointer
+						border-radius radius
+						text-align center
+						padding (buffer/3) buffer
+						width auto
+		.customer
+			padding buffer (buffer/2) buffer (buffer/2)
+			.block
+				padding 0 0 buffer 0
+				h1
+					display inline-block
+					border 2px solid fontColorDark
+					border-bottom 0
+					padding (buffer/3) buffer
+					margin 0 0 buffer
+					font-size 13px
+					font-weight 500
+				.inputs
+					.editable
+						position relative
+						padding-left buffer
+						height (ribbonHeight / 1.5)
+						margin 0 0 (buffer/1.5)
+						border-bottom 1px solid strokeColor
+						.icon
+							height (ribbonHeight / 1.5)
+							padding 10px (buffer/2) 10px 0
+						label 
+							width auto
+							padding 0 buffer
+							background white
+							font-size 10px
+							position absolute
+							right 6px
+							top -8px
+							&.bottom
+								top auto
+								bottom 0px
+								right 0px
+								border 1px solid strokeColor
+								border-bottom 0
+						p
+							line-height (ribbonHeight / 1.5)
+							min-height (ribbonHeight / 1.5)
+						&.noHeight
+							height auto
+		.payments
+			padding buffer (buffer/2) (buffer/2) 
+			.credit
+				h1
+					&.subtitle
+						border 0 
+						border-bottom 1px solid
+						font-weight 500
+						padding 0 (buffer/2)
+						margin 0 buffer buffer
+				.editable
+					position relative
+					height (ribbonHeight / 1.5)
+					margin 0 0 (buffer/1.5)
+					border-radius radius
+					border 1px solid strokeColor
+					.icon
+						height (ribbonHeight / 1.5)
+						padding 10px (buffer/2) 10px 0
+					label 
+						width auto
+						padding 0 buffer
+						background white
+						font-size 10px
+						position absolute
+						right 6px
+						top -8px
+					input
+						border 0
+						font-size 12px
+					textarea
+						height (ribbonHeight * 2)
+						resize none
+						padding (buffer/2)
+						border 0
+						font-size 12px
+					&.noHeight
+						height auto
+			.payment
+				padding buffer 0
+				.empty
+					border 2px dashed transparent
+					.iconTitle
+						text-align center
+						.icon
+							width 100px
+							height 100px
+							padding-bottom 0
+							svg
+								width 100%
+						h1
+							font-weight bold
+						p
+							margin-bottom (buffer*2)
+			.recieved
+				border 1px solid primaryColor
+				color primaryColor
+				background alpha(primaryColor, 0.2)
+				padding (buffer/3) buffer
+				margin 0 0 buffer
+				font-size 13px
+				font-weight 500
+				&.no
+					border 1px solid alpha(fontColorDark, 0.5)
+					background bgColorLight
+					color fontColorDark
+			.title
+				border 2px solid fontColorDark
+				border-bottom 0
+				padding (buffer/4) buffer
+				margin 0 0 buffer
+				font-size 13px
+				font-weight 500
+					
+	.thread
+		padding 0
+		background alpha(bgColorLight, 0.9)
+		.flow			
+			height 100%
+			overflow hidden
+			padding 0
+			.stream
+				position relative
+				height 100%
+				background alpha(bgColorLight, 0.9)
+				padding 0 10px
+				box-shadow inset 0px 0px 3px darken(strokeColor, 10)
+				.bubble
+					height "calc(100% - %s)" % (ribbonHeight * 2)
+					padding 0 buffer ribbonHeight
+					overflow-y scroll
+					overflow-x hidden
+					background alpha(bgColorLight, 0.9)
+					clear both
+					border-width 0 1px
+					transition transition
+					.header
+						height ribbonHeight
+						padding 10px 0
+						.title
+							display inline-block
+							border-top 2px solid transparent
+							width calc(((100%/3)*2) - 140px)	
+							.text
+								font-size 0
+								display inline-block
+								p 
+									display inline-block
+									height ((ribbonHeight - 20px)/2)
+									line-height ((ribbonHeight - 20px)/2)
+									padding 0 buffer
+									color rgba(0,0,0,0.3)	
+									&:first-of-type
+										font-size 13px
+										font-weight bold
+									span
+										font-size 9px
+										font-weight 100
+										color rgba(0,0,0,0.3)
+							.platform
+								display inline-block
+								min-width ribbonHeight
+								padding 0 
+								font-size 0
+								p
+									display inline-block
+									height (ribbonHeight - 20px)
+									padding 0 6px
+									vertical-align top
+									text-align left
+									border-right 1px solid fontColorDark
+									color #111
+									line-height (ribbonHeight - 20px)
+								.icon
+									text-align center
+									height (ribbonHeight - 20px)
+									padding 0 (buffer/2)
+									svg
+										fill #111
+					.empty
+						height "calc(100% - %s)" % ribbonHeight
+						.iconTitle
+							text-align center
+							height "calc(100% - %s)" % (ribbonHeight * 2)
+							.icon
+								height 100%
+								width 200px
+								padding-bottom 0
+								svg
+									width 100%
+									fill white
+							h1
+								font-weight bold
+							p
+								margin-bottom (buffer*2)
+					noSelect()
+					// &.shrink
+					// 	height "calc(100% - %s)" % (ribbonHeight * 3)
+					.day
+						text-align center
+						height (ribbonHeight/2)
+						clear both
+						font-size 11px
+						line-height (ribbonHeight/1.2)
+						color rgba(0,0,0,0.3)	
+					.message
+						margin buffer ribbonHeight (buffer*3) 
+						text-align left
+						color fontColor
+						width 85%
+						position relative
+						.tag
+							position relative
+							padding buffer
+							background white
+							border-radius buffer
+							font-size 0
+							margin 0 0 (buffer/2) 0	
+							.image
+								height ribbonHeight * 4
+								margin-left buffer
+								background-size contain
+								background-repeat no-repeat
+								background-position center							
+						.chevron
+							content " "
+							background bgColorLight
+							height 7px
+							width 7px
+							position absolute
+							pointer-events none
+							border solid
+							bottom -6px					
+						&.them
+							float right
+							.tag
+								border 1px solid alpha(bgColorDark, 0.3)
+								&:last-of-type	
+									border-bottom-right-radius 0px
+									margin 0
+								&:after
+									position absolute
+									font-size 10px
+									padding 0 (buffer/2)
+									pointer-events none
+									color fontColorDark
+									background white
+									top -7px
+									right 5px			
+								&.i
+									border 1px solid alpha(secondaryColor, 0.5)
+									&:after
+										color secondaryColor
+										content "Inquery"									
+								&.o
+									border 1px solid alpha(thirdColor, 0.5)
+									&:after
+										color thirdColor
+										content "Order"									
+								&.p
+									border 1px solid alpha(fourthColor, 0.5)
+									&:after
+										color fourthColor
+										content "Payment"
+								.profile
+									right -42px 
+									border 1px solid bgColorDark										
+							.chevron
+								right -6px
+								color bgColorDark
+								border-width 0 2px 2px 0 
+								&.top
+									top -6px
+									left -6px
+									right auto
+									bottom auto
+									border-width 2px 0 0 2px 
+								&.bottom
+									border-style double
+									// &:after
+									// 	content " "
+									// 	height 9px
+									// 	width 9px
+									// 	position absolute
+									// 	pointer-events none
+									// 	border solid
+									// 	bottom -6px	
+									// 	left 0px
+									// 	border-width 0 2px 2px 0 
+						&.me
+							float left
+							.text
+								h1
+									color primaryColor
+							.tag
+								border 1px solid alpha(primaryColor, 0.3)
+								&:last-of-type	
+									border-bottom-left-radius 0px
+									margin 0
+								&.i
+									border 1px solid alpha(secondaryColor, 1)
+								&.o
+									border 1px solid alpha(bgColorDark, 0.2)
+								&.p
+									border 1px solid alpha(bgColorDark, 0.2)
+							.profile
+								left -42px
+								border 1px solid primaryColor
+							.chevron
+								left -6px
+								color primaryColor
+								border-width 0 0 2px 2px
+								&.top
+									top -6px
+									right -6px
+									left auto
+									bottom auto
+									border-width 2px 2px 0 0 
+								&.bottom
+									// &:after
+									// 	content " "
+									// 	height 9px
+									// 	width 9px
+									// 	position absolute
+									// 	pointer-events none
+									// 	border solid
+									// 	bottom -6px	
+									// 	right 0px
+									// 	border-width 0 0 2px 2px 
+						.profile
+							position absolute
+							bottom -42px
+							border-radius 100%
+						.text
+							display inline-block
+							padding 0 (buffer/2)
+							h1
+								font-weight bold
+								color #111
+							p 
+								color fontColorDark
+								white-space pre-wrap
+							p, h1
+								min-height 20px
+								line-height 20px
+								padding 0 ( buffer / 2 )
+								span
+									height 20px
+									display inline-block
+									line-height 24px
+									padding 0px (buffer / 2)
+									font-size 11px
+									color rgba(0,0,0,0.3)
+									&.created
+										float right
+										opacity 0
+							span
+								.image
+									padding (buffer/2)
+									position relative
+									background-size contain
+									background-repeat no-repeat
+									background-position left
+									margin (buffer/2) 0
+									.actions
+										position absolute
+										right (buffer/2)
+										top (buffer/2)
+										.action
+											border 2px solid primaryColor
+											border-radius radius
+											margin-bottom buffer
+											transition transition
+											cursor pointer
+											transform scale(0.85)
+											p
+												display inline-block
+												line-height (ribbonHeight/2)
+												height (ribbonHeight/2)
+												transition transition
+												color primaryColor
+											.icon
+												display inline-block
+												height (ribbonHeight/2)
+												padding 0 0 0 6px
+												svg
+													fill primaryColor
+													transition transition
+											&:hover
+												transform scale(0.9)
+								&.multiSelect
+									.image
+										background-color bgColorLight
+									p
+										background bgColorLight
+								&:hover
+									.image
+										span
+											&.created
+												opacity 1
+									p
+										span
+											&.created
+												opacity 1
+						.actions
+							display inline-block
+							position absolute
+							right buffer
+							text-align right			
+				.inputs
+					height ( ribbonHeight * 4 )
+					transition transition
+					transform translate3d(0, -10px, 0)
+					padding 0
+					&.expand
+						transform translate3d(0, -110px, 0)
+					.actions
+						border solid strokeColor
+						// background alpha(bgColorLight, 0.9)
+						background white
+						border-width 1px 0px 0px 1px
+						span
+							display block
+							height (( ribbonHeight * 2 ) / 3)
+							transition transition
+							.icon
+								cursor pointer
+								padding 0
+								height (( ribbonHeight * 2 ) / 3)
+								width 100%	
+							&.selected
+								svg
+									fill primaryColor
+							&:hover
+								transform scale(1.25)
+					.input
+						border solid strokeColor
+						border-width 1px 1px 0px 0px 
+						// background alpha(bgColorLight, 0.9)
+						background white
+						.textarea
+							border 0
+							// background alpha(bgColorLight, 0.9)
+							background white
+							white-space pre-wrap
+							padding (buffer/2) buffer
+							font-size 12px
+							resize none
+							noSelect()
+						.items
+							padding (buffer/2) (buffer/2) 0 (buffer/2)
+							overflow-x hidden
+							overflow-y scroll
+							.template
+								width calc((100%/3) - 6px)
+								height ribbonHeight * 3
+								border 1px solid strokeColor
+								background bgColorLight
+								border-radius radius
+								cursor move
+								padding (buffer/2)
+								margin 0 (buffer/2) (buffer/2) 0		
+								p
+									white-space pre-wrap
+									display -webkit-box
+									-webkit-line-clamp 8
+									-webkit-box-orient vertical  
+									overflow hidden
+									noSelect()
+							.product
+								position relative
+								width calc((100%/3) - 6px)
+								height ribbonHeight * 3
+								cursor move
+								border 1px solid strokeColor
+								margin 0 (buffer/2) (buffer/2) 0
+								border-radius radius	
+								&:last-of-type
+									margin 0 (buffer/2) buffer 0
+								.button
+									cursor pointer
+									position absolute
+									top (buffer/2)
+									right (buffer/2)
+									height (ribbonHeight/2)
+									padding 0 buffer
+									border 1px solid strokeColor
+									background bgColorLight
+									p
+										padding 0 0 0 (buffer/2)
+										line-height (ribbonHeight/2)
+										display inline-block 
+										font-size 10px
+									.icon
+										padding 0
+										height (ribbonHeight/2)
+								.image
+									background-size ribbonHeight * 2
+									background-repeat no-repeat
+									background-color white
+									background-position center
+								.text
+									border-top 1px solid darken(strokeColor, 15)
+									padding (buffer/2)
+									background bgColorLight
+									font-size 0
+									p
+										white-space nowrap
+										overflow hidden
+										text-overflow ellipsis
+				.padding	
+					position absolute
+					background alpha(bgColorLight, 0.9)
+					bottom 0
+					left 0
+					width calc(100% - 20px)
+					margin 0 0 0 10px
+					border-top 1px solid strokeColor
+					height 10px	

@@ -1,0 +1,75 @@
+@import './../global.styl'
+
+.sidenav
+	background sidenavBg
+	border-right 1px solid bgColorLight
+	.header
+		height (ribbonHeight * 1.8)
+		padding 20px 30px
+		text-align center
+		.logo
+			position relative
+			border 2px solid white
+			padding 5px 0
+			p
+				display inline-block
+				color #fff
+				padding 0 (buffer/2)
+				line-height 35px
+				height 35px
+				letter-spacing 2px
+				font-size 15px
+	.scroll
+		height "calc(100% - %s)" % ribbonHeight	
+	&.list	
+		ul
+			li
+				cursor pointer
+				background transparent
+				color darken(fontColor, 10)
+				p
+					height (ribbonHeight * 1.05)
+					line-height (ribbonHeight * 1.05)
+					display inline-block
+				    white-space nowrap
+				&:hover
+					background alpha(white, 0.1)
+				&.selected
+					background alpha(white, 0.2)
+					color white
+			&.buttons
+				border 0
+				margin 0
+				background bgColorDark
+				border-right 1px solid strokeColor
+				padding buffer buffer 0
+				li
+					display inline-block
+					width 'calc(50% - %s)' % (buffer / 2)
+					margin 0 (buffer / 2) 0 0
+					background bgColorDark
+					border 2px solid 
+					height (ribbonHeight / 2)
+					line-height (ribbonHeight / 2)
+					p
+						height ((ribbonHeight / 2) - 2)
+						line-height ((ribbonHeight / 2) - 2)
+						font-weight bold
+					.icon
+						height ((ribbonHeight / 2) - 4)
+						line-height ((ribbonHeight / 2) - 4)
+						padding 0
+					&:nth-of-type(even)
+						margin 0 0 0 (buffer / 2)
+					&:active
+						background bgColorDark
+					&:hover
+						shadow()
+						
+	.sub	
+		.ribbon
+			h1
+				font-weight 500
+			svg
+				fill darken(fontColor, 10)
+							

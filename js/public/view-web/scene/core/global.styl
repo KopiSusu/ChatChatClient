@@ -1,0 +1,565 @@
+
+//Global Color vars
+importantColor = #d14836
+primaryColor = rgba(35, 180, 150, 1)
+secondaryColor = #4285f4
+thirdColor = #16a765
+fourthColor = #d14836
+
+bgColor = #fff
+bgColorDark = rgba(55,55,55, 1)
+bgColorLight = rgba(243,243,243,.85)
+
+strokeColor = #e1e1e1
+strokeColorDark = rgba(51,51,51, 1)
+
+fbColor = #4c69ba
+
+fontColor = rgba(255,255,255, 1)
+fontColorLight = rgba(255,255,255, 0.8)
+fontColorDark = #637074
+
+inputBgColor = white
+
+searchWidth = 200px
+radius = 3px
+buffer = 12px
+fontSize = 13px
+ribbonHeight = 50px
+
+transition = all 0.33s cubic-bezier(0.4, 0, 0.2, 1)
+
+// new styles
+greenColor = rgba(35, 180, 150, 1)
+blueColor = rgba(35, 120, 190, 1)
+sidenavBg = linear-gradient(greenColor, blueColor);
+
+
+[contenteditable]:focus { outline: 0px solid transparent; }
+
+@keyframes bounce
+  0% 
+    transform translate(0px)
+  
+  50% 
+    transform translate(-50px)
+  
+  100% 
+    transform translate(0px)
+    
+
+noSelect()
+	-webkit-touch-callout none 
+	-webkit-user-select none
+	-khtml-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none
+	
+
+// Global styles
+
+body 
+	background #fff
+	color fontColor
+	font-size 100% 
+	line-height 1.5
+	overflow hidden
+	// font-family 'Merriweather Sans', sans-serif
+	*
+		box-sizing border-box
+		vertical-align top
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus
+	outline none
+
+.scroll
+	overflow auto
+
+//Global Mixins
+shadow()
+	-webkit-box-shadow 0px 1px 2px 0px rgba(0,0,0,0.2)
+	-moz-box-shadow 0px 1px 2px 0px rgba(0,0,0,0.2)
+	box-shadow 0px 1px 2px 0px rgba(0,0,0,0.2)
+
+
+//Button groups
+
+
+//Buttons
+
+		
+//Columns
+// ex .column-4 === width 25%
+generate-column()
+	for n, x in 1..20
+		.column-{x}
+			display inline-block
+			vertical-align top
+			width (100% / x)
+			&.center
+				margin-left ((100% / x) / 2)
+
+// ex .column-5-3 === width 60% 
+// ex .column-5-2 === width 40%
+generate-column-fill()
+	for n, x in 1..20
+		for n, y in 1..x
+			.column-{x}-{y}
+				display inline-block
+				vertical-align top
+				width (100% / x) * y
+				
+// ex .column-5-offset-2
+generate-column-offset()
+	for n, x in 1..20
+		for n, y in 1..x
+			.column-{x}-offset-{y + 1}
+				display inline-block
+				vertical-align top
+				margin-left (100% / x) * y
+				width (100% / x)
+
+generate-column()
+generate-column-fill()
+generate-column-offset()
+
+//Columns
+// ex .row-4 === height 25%
+generate-row()
+	for n, x in 1..20
+		.row-{x}
+			vertical-align top
+			height (100% / x)
+			&.center
+				margin-top ((100% / x) / 2)
+
+// ex .row-5-3 === height 60% 
+// ex .row-5-2 === height 40%
+generate-row-fill()
+	for n, x in 1..20
+		for n, y in 1..x
+			.row-{x}-{y}
+				vertical-align top
+				height (100% / x) * y
+				
+// ex .row-5-offset-2
+generate-row-offset()
+	for n, x in 1..20
+		for n, y in 1..x
+			.row-{x}-offset-{y + 1}
+				vertical-align top
+				margin-top (100% / x) * y
+				height (100% / x)
+
+generate-row()
+generate-row-fill()
+generate-row-offset()
+//Forms
+
+//Search
+.searchbar
+	padding 0
+	&.right
+		float right
+	.search
+		position relative
+		display inline-block
+		text-align right
+		margin 0
+		&.right 
+			float right
+		input
+			padding 0 0 0 (buffer/2)
+			border-top-right-radius 10px
+			border-bottom-right-radius 10px
+			height 25px
+			color fontColorDark
+			background white
+			display inline-block
+			font-size 11px
+			border 1px solid strokeColor
+			border-left 0
+			width "calc(100% - %s)" % ((searchWidth / 8) * 2)
+			&:focus
+				outline none
+		.icon
+			padding (buffer/4) (buffer/4) (buffer/4) (buffer/2)
+			height 100%
+			border-top-left-radius 10px
+			border-bottom-left-radius 10px
+			display inline-block
+			border 1px solid strokeColor
+			background white
+			border-right 0
+			width auto
+			svg
+				fill fontColorDark
+				opacity 0.5
+
+//inputs
+input
+	width 100%
+	height ribbonHeight
+	padding buffer
+	border 1px solid strokeColor
+	border-radius 0
+	-webkit-appearance none
+	&:focus
+		outline none
+		border 1px solid secondaryColor
+
+input[type='checkbox']
+	width auto
+	margin-right buffer
+	min-width 10px
+	min-height 10px
+	&:checked
+		background #333
+	
+label.checkboxLabel
+	color fontColorLight
+
+//Typogrophy
+h1
+	font-size 14px
+	font-weight 100
+	letter-spacing 0.5px
+	margin 0
+	
+p
+	font-size 11px
+	margin 0
+	letter-spacing 0.5px
+	&.secondaryText
+		color fontColorLight
+
+.bold
+	font-weight bold
+
+//Containers
+.window
+	position absolute
+	overflow hidden
+	width 100%
+	height 100%
+	
+.container
+	width 100%
+	padding 0
+	
+.box
+	background-color bgColorLight
+	padding buffer * 2
+	shadow()
+		
+//Lists
+.list
+	height 100%	
+	ul
+		margin 0
+		padding 0		
+		li
+			list-style none
+			height ribbonHeight
+			line-height ribbonHeight
+			clear both
+			padding 0 buffer
+			background transparent
+			&:last-of-type
+				border-bottom 0
+			p
+				height ribbonHeight
+				line-height ribbonHeight
+			&.selected
+				background lighten(bgColorDark, 10)						
+				
+//Icons
+.icon
+	text-align center
+	display inline-block
+	height ribbonHeight - 1
+	padding buffer (buffer / 2)
+	svg
+		height 100%
+		width 15px
+		vertical-align top !important
+	&.interactive
+		cursor pointer
+		&:hover
+			svg
+				fill primaryColor !important
+		&:active
+			svg
+				fill primaryColor !important
+	&.right
+		float right
+	&.left
+		float left
+	&.dim
+		opacity 0.3
+	&.online				
+		svg
+			fill primaryColor !important
+			
+//Tabs
+.tabs
+	position relative
+	height (ribbonHeight * 1.2)
+	white-space nowrap
+	overflow hidden
+	border-bottom 1px solid strokeColorDark
+	padding 10px 0
+	select
+		-webkit-appearance none
+		-moz-appearance none
+		appearance none
+		cursor pointer
+		padding (buffer/2) buffer
+		width (ribbonHeight * 2)
+		margin 0 0 0 0
+		height (ribbonHeight * 0.8)
+		font-size 12px
+		background transparent url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat 70px center
+		background-size 10px 10px, auto, 10px
+		border 0.5px solid transparent
+		border-width 2px 1px 1px 1px
+		border-top 2px solid transparent
+		border-radius 0
+		&:hover
+			text-decoration underline
+	.title
+		display inline-block
+		border-top 2px solid transparent
+		width calc(((100%/3)*2) - 140px)	
+		.text
+			font-size 0
+			display inline-block
+			p 
+				display inline-block
+				height ((ribbonHeight - 10px)/2)
+				line-height ((ribbonHeight - 10px)/2)
+				padding 0 buffer	
+				&:first-of-type
+					font-size 13px
+					font-weight bold
+					color #111
+				span
+					font-size 10px
+					font-weight 100
+					color fontColorDark
+		.platform
+			display inline-block
+			min-width ribbonHeight
+			padding 0 
+			font-size 0
+			p
+				height ((ribbonHeight - 10px)/2)
+				padding 0 6px 0 12px
+				vertical-align top
+				text-align center
+				color #111
+				line-height ((ribbonHeight - 10px)/2)
+			.icon
+				text-align center
+				height ((ribbonHeight - 10px)/2)
+				padding 0 (buffer/2) 0 buffer
+				width 100%
+				svg
+					width 30px
+					fill #111
+	.tab
+		position relative
+		height (ribbonHeight * 0.8)
+		background transparent
+		border 0
+		border-top 2px solid transparent
+		cursor pointer
+		transition border-top 0.11s cubic-bezier(0.4, 0, 0.2, 1)
+		font-size 0
+		&.small
+			width calc((100%/3) - (20px/3)) 
+			white-space pre-wrap
+			.icon
+				padding (buffer/2) 0 0
+				width 100%
+				height 19px
+			p 
+				font-size 10px
+				width 100%
+				height buffer
+				text-align center
+				line-height buffer
+		&.right
+			float right
+			&:last-of-type 
+				border-width 2px 1px 1px
+		p
+			text-align left
+			font-size 11px
+			line-height (ribbonHeight * 0.8)
+			color fontColorDark
+		.icon
+			padding 0 (buffer * 1.9)
+			height (ribbonHeight * 0.75)
+			svg
+				fill fontColorDark
+				width 100%
+		.circle
+			position absolute
+			background fontColor
+			border-radius 50%
+			width 15px
+			height 15px
+			left 5px
+			top 5px
+			p
+				line-height 13px
+				color bgColorDark
+		&.add
+			width (ribbonHeight*0.4)			
+		&.iconButton
+			width (ribbonHeight*0.4)
+			background bgColorLight
+			border 1px solid darken(strokeColor, 10)
+			padding 0 (buffer/4)
+			margin 0 buffer
+			.icon
+				padding 0
+				height 100%
+				text-align center
+				width 100%
+			&.solo
+				background white
+				margin 0 (buffer/2)
+				border 0
+				&.small
+					margin 0
+			&:hover
+				svg
+					fill #111
+		&:hover
+			p
+				color #111
+			svg
+				fill #111
+		&.selected
+			background transparent
+			border-top 2px solid greenColor
+			border-bottom 1px solid transparent
+			p
+				font-weight bold
+				color #111
+			svg
+				fill #111
+			&:hover
+				background transparent
+				
+//Ribbons
+.ribbon
+	height ribbonHeight
+	border-bottom 1px solid strokeColor
+	padding 0 buffer
+	&.center
+		text-align center
+	h1
+		line-height ribbonHeight
+		padding 0 buffer
+	.icon
+		padding (buffer * 1.50) (buffer / 2)
+		svg
+			fill fontColorDark
+		&.under
+			padding 0 buffer
+			svg
+				margin-top (ribbonHeight / 6)
+				height (ribbonHeight / 3)
+			p
+				height (ribbonHeight / 3)
+				line-height (ribbonHeight / 3)
+				font-size 12px
+	.header
+		display inline-block
+		&.title
+			text-align center
+		&.subtitle
+			h1
+				margin-top (ribbonHeight / 6)
+				line-height (ribbonHeight / 3)
+				padding-left 0
+			p
+				line-height (ribbonHeight / 3)
+				height (ribbonHeight / 3)
+				display inline-block
+				padding 0
+				color darken(fontColor, 20)
+			.icon
+				height 13px
+				padding (buffer / 8) 0
+				svg 
+					fill darken(fontColor, 20)
+			.button
+				cursor pointer
+				&:hover
+					&.interactive
+						p
+							color: primaryColor
+						svg
+							fill primaryColor
+					&:active
+						p
+							color primaryColor
+						svg
+							fill primaryColor
+
+//Tables
+
+//Images
+
+//Dropdowns
+
+//Alerts
+
+//Modals
+
+// ::-webkit-scrollbar 
+// 	-webkit-appearance none
+// 	&:vertical 
+// 		width 7px
+// 	&:horizontal 
+// 		height 7px
+// ::-webkit-scrollbar-track 
+// 	background transparent
+// ::-webkit-scrollbar-thumb 
+// 	border-radius 10px
+// 	background-color transparent
+// 	border 1px solid transparent
+	
+::-webkit-scrollbar 
+	-webkit-appearance none
+
+
+::-webkit-scrollbar:vertical 
+	width 6px
+
+
+::-webkit-scrollbar:horizontal 
+	height 6px
+
+
+::-webkit-scrollbar-track 
+	background transparent
+
+
+::-webkit-scrollbar-thumb 
+	border-radius 10px
+	background-color alpha(#111, 0)
+	border solid transparent
+	border-width 1px
+	
+
+
+

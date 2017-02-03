@@ -1,0 +1,22 @@
+[
+	{
+		"id": 0,
+		"type": "template",
+		"value": "Dear User \n \nWelcome to Tulola Jewlery! \nHere at Tulola we serve the best peanut butter cups in all the land!!\n"
+	},
+	{
+		"id": 1,
+		"type": "template",
+		"value": "Dear User \n \nYour order is in progress! \nWould you like to view your order?\n"
+	},
+	{
+		"id": 2,
+		"type": "template",
+		"value": "Dear User \n \nYour payment is in progress! \nWould you like to view your payment?\n"
+	},
+	{
+		"id": 3,
+		"type": "template",
+		"value": "Dear User \n \nYour payment has been processed!! \nPlease let us know if there is anything else we can help you with!\n"
+	}
+]

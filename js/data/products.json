@@ -1,0 +1,37 @@
+[
+  	{
+      "id": "1",
+    	"name": "Arjuna Ring",
+      "price": "Rp 2,150,000",
+      "type": "product",
+      "src": "https://cdn.shopify.com/s/files/1/0053/4502/products/crossmenring_large.jpg?v=1468631411",
+  	},
+    {
+      "id": "2",
+      "name": "Jawan Hammered Narrow Stack Ring Gold Dip",
+      "price": "Rp 1,700,000",
+      "type": "product",
+      "src": "https://cdn.shopify.com/s/files/1/0053/4502/products/6a_large.jpg?v=1469583493",
+    },
+    {
+      "id": "3",
+      "name": "Stack Mens Ring Black",
+      "price": "Rp 1,350,000",
+      "type": "product",
+      "src": "https://cdn.shopify.com/s/files/1/0053/4502/products/7_6c206e69-d65b-4b97-a938-02b0faac7271_large.jpg?v=1469587535",
+    },
+    {
+      "id": "4",
+      "name": "Star Light Cuff Silver",
+      "price": "Rp 1,150,000",
+      "type": "product",
+      "src": "https://cdn.shopify.com/s/files/1/0053/4502/products/star-light-cuff-silver_large.jpg?v=1459912764",
+    },
+    {
+      "id": "5",
+      "name": "Star Light Cuff",
+      "price": "Rp 1,150,000",
+      "type": "product",
+      "src": "https://cdn.shopify.com/s/files/1/0053/4502/products/star-light-cuff_large.jpg?v=1459908931",
+    }
+]
